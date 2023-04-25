@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css" />
+        <script src="jquery-3.4.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js"></script>
+        <title> Semana Geomática</title>
+        <style>
+            *{	
+                padding: 0% ;
+                margin: 0% 0%;		
+            }
+            
+            html, body{
+                height:100% ;
+                width:100% vw;
+            }
+
+            #total{
+                height: 77%;
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: row;
+            }
+            
+            #img{
+                position:relative;
+                float:left;
+                width:30%;
+                height:20%;
+                top:1%;
+                left:1%;
+            }
+            #img1{
+                position:relative;
+                float:inline-end;
+                width:65%;
+                height:20%;
+                top:1%;
+                left:1%;
+            }
+
+            #registro{
+                position:relative;
+                float:left;
+                width:30%;
+                height:98%;
+                background-color:#26BCD6;
+                top:0%;
+                border-radius:15px;
+                outline: 3px solid #008037;
+                outline-offset: -14px;
+                left:1%;
+            }
+            
+            #sub{
+                position: relative;
+                min-height: 1px;
+                padding-right: 0px;
+                padding-left: 6%;}
+            #box{
+                width:94%;
+                height: 4%;
+            }
+            #boton{
+                background-color:#FF8019;
+                border-color:#FF8019;
+                color:white;
+                border-radius:5px;
+                height:5%;
+                width:30%
+            }
+            
+            .my-custom-style {
+                font-family: 'Muli',sans-serif;
+                font-size: 16px;
+                color: #333;
+            } 
+              
+            #map{
+                right:-4%;
+                width:65%;
+                height:95%;
+                top:1%;
+                font-size: 24px;
+                font-weight: bold;
+                text-align: center;
+                border: 2px solid black;
+                margin-bottom: 10px;
+            }
+
+        </style>
+    
+    </head>
+
+    <body>
+        
+    <input type="image" src="Semana.jpg" id="img">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input align="center" type="image" src="logo1.png" id="img1"><br><br>
+
+    
+    <div id="total" style="z-index:0">
+           
+            <div id="registro" style="z-index:1">
+            <br><p align="center" style="font-size: 35px;">Regístrese aquí<br>
+            
+            <p id="sub" style="font-size: 20px;">Nombres<br>
+            <input type="text" id="box"></p><br>
+
+            <p id="sub" style="font-size: 20px;">Apellidos<br>
+            <input type="text" id="box"></p><br>
+
+            <p id="sub" style="font-size: 20px;">Email<br>
+            <form>  
+                <p id="sub"><input type="email" id="box"></p>
+            </form></p><br>
+        
+            <p id="sub" style="font-size: 20px;">Genero</p><br>
+            <form>
+                <p id="sub" align="center" style="font-size: 17px;"><input type="radio" name="prueba" value="M">Masculino&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="prueba" value="F">Femenino&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </form><br>
+            
+            <p id="sub" style="font-size: 20px;">Cargo<br>
+            <select name="rol" id="box">
+                <option value="" selected disabled>Seleccione una opción</option>
+                <option value="profesor">Profesor</option>
+                <option value="estudiante">Estudiante</option>
+                <option value="otro">Otro</option>
+            </select><br><br>
+
+            <p id="sub" style="font-size: 20px;">Ciudad/País<br>
+            <input type="text" id="box"></p><br>
+            
+            <p align="center"><input type="checkbox" style="font-size: 15px;">He leído y acepto la política de privacidad</p><br><br>
+            
+            <p align="center"><input type="submit" id="boton" value="Registrarse"  style="font-size: 20px;"></p><br>
+            
+            </div>
+            
+            <div id="map" style="z-index:1">             
+            </div>
+    </div>
+
+    </body>
+
+    <script>
+        var map = L.map('map',
+	    {
+		    zoom: 10
+	    }).setView([3.42335,-76.52086], 12);          
+		    var mapabase = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
+		{
+			maxZoom: 15,
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		}).addTo(map);
+
+        L.marker([3.448938,-76.534610], {color:"green"}).addTo(map).bindPopup("<span class='my-custom-style'>Centro Cultural Comfandi Nelson Garces Vernazaz</span>");
+
+    </script>
+</html>
